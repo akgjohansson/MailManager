@@ -20,7 +20,16 @@ namespace TestMailManager
         [TestMethod]
         public async Task TestSendMailGotaElves()
         {
-            using (var manager = new MailManager.MailManager("mail.gotaelves.se", "postmaster@gotaelves.se", "GotaElvesJ-11"))
+            using (var manager = new MailManager.MailManager("smtp.gmail.com", 587, "gotaelves@gmail.com", "gotaelves@gmail.com", "GotaElvesJ-11"))
+            {
+                await manager.SendMail(new List<string> { "akgjohan@gmail.com", "launchpad@gotaelves.se" }, "testämne", "testtext");
+            }
+        }
+
+        [TestMethod]
+        public async Task TestSendMailBrollop()
+        {
+            using (var manager = new MailManager.MailManager("smtp.gmail.com", 587, "ja19maj@gmail.com", "ja19maj@gmail.com", "JA2018-pass"))
             {
                 await manager.SendMail(new List<string> { "akgjohan@gmail.com", "launchpad@gotaelves.se" }, "testämne", "testtext");
             }

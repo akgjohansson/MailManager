@@ -36,7 +36,7 @@ namespace MailManager
         }
 
 
-        public async Task SendMail(IEnumerable<string> recipiants, string subject, string text)
+        public void SendMail(IEnumerable<string> recipiants, string subject, string text)
         {
             foreach (var recipiant in recipiants)
             {
